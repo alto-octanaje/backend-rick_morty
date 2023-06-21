@@ -15,7 +15,6 @@ const getApiUsers = async (req, res) => {
   else {
     const getAll= await getAllUsers()
     res.status(200).json(getAll)
-
   }
  } catch (error) {
     res.status(400).json({error:error.message})  
@@ -32,6 +31,7 @@ const getUsersId = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+
 const postUser = async (req, res) => {
   try {
     const { name } = req.body;

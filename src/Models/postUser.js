@@ -36,6 +36,15 @@ module.exports = (sequelize) => {
       location: {
         type: DataTypes.JSON,
         allowNull: false,
+        validate: {
+          hasOriginName(value) {
+            if (!value.name) {
+              throw new Error(
+                'The "location" property must have the "name" property'
+              );
+            }
+          },
+        },
       },
       origin: {
         type: DataTypes.JSON,
@@ -44,7 +53,7 @@ module.exports = (sequelize) => {
           hasOriginName(value) {
             if (!value.name) {
               throw new Error(
-                'La propiedad "origin" debe tener la propiedad "name"'
+                'The "origin" property must have the "name" property'
               );
             }
           },
