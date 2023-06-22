@@ -1,0 +1,19 @@
+const { default: axios } = require("axios");
+const cleanArray = (array) =>
+  array.map((e) => ({
+    species: e.species,
+  }));
+
+const getAllSpecieC = async () => {
+  const findSpecieApi = (
+    await axios.get("https://rickandmortyapi.com/api/character/")
+  ).data.results;
+  const speciesAll = cleanArray(findSpecieApi);
+  const uniqueSpecies = [...new Set(speciesAll.map((e) => e.species))];
+
+  return uniqueSpecies;
+};
+
+module.exports = {
+  getAllSpecieC,
+};

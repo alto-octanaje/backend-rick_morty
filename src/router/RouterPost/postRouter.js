@@ -7,4 +7,4 @@ const postRouter=Router();
 postRouter.post("/",createChatacterV ,createPostH)
 postRouter.get("/",getAllPostH)
 postRouter.get("/:id",getPostIDH)
-module.exports= postRouter;
+module.exports= postRouter; 

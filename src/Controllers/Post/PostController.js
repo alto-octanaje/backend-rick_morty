@@ -1,6 +1,6 @@
 const { default: axios } = require("axios");
 const { postUser } = require("../../db");
-
+ 
 const cleanArray = (array) =>
   array.map((e) => ({
     id: e.id,

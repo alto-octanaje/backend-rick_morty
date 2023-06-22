@@ -5,7 +5,7 @@ const {
   idPostC,
 } = require("../../Controllers/Post/PostController");
 const { user, postUser } = require("../../db");
-
+ 
 const createPostH = async (req, res) => {
   try {
     const {
