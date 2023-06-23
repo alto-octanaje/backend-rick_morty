@@ -1,4 +1,4 @@
-const createChatacterV=(req,res,next)=>{
+const              createChatacterV=(req,res,next)=>{
     const {name,status,species,type,gender,image,location,origin,userId}= req.body;
     if(!name) return res.status(400).json({error:"Missing Name" })
     if(!status) return res.status(400).json({error:"Missing status" })
