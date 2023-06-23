@@ -1,14 +1,14 @@
 const {
-  getAllSpecieC,
+  getAllSpeciesC,
   getAllGenderC,
   getAllStatusC,
   getAllOriginC,
-  getAllLocationC
+  getAllLocationC,
 } = require("../../Controllers/Select/SelectController");
 
 const getAllSpecieH = async (req, res) => {
   try {
-    const getAllSpecie = await getAllSpecieC();
+    const getAllSpecie = await getAllSpeciesC();
 
     res.status(200).json(getAllSpecie);
   } catch (error) {
@@ -25,30 +25,30 @@ const getAllGenderH = async (req, res) => {
 };
 
 const getAllStatusH = async (req, res) => {
-    try {
-      const getAllStatus = await getAllStatusC();
-      res.status(200).json(getAllStatus);
-    } catch (error) {
-      res.status(400).json({ error: error.message });
-    }
-  };
-  const getAllOriginH = async (req, res) => {
-    try {
-      const getAllOrigin = await getAllOriginC();
-      res.status(200).json(getAllOrigin);
-    } catch (error) {
-      res.status(400).json({ error: error.message });
-    }
-  };
- 
-  const  getAllLocationH = async (req, res) => {
-    try {
-      const getAllLocation = await getAllLocationC();
-      res.status(200).json(getAllLocation);
-    } catch (error) {
-      res.status(400).json({ error: error.message });
-    }
-  };
+  try {
+    const getAllStatus = await getAllStatusC();
+    res.status(200).json(getAllStatus);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+const getAllOriginH = async (req, res) => {
+  try {
+    const getAllOrigin = await getAllOriginC();
+    res.status(200).json(getAllOrigin);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const getAllLocationH = async (req, res) => {
+  try {
+    const getAllLocation = await getAllLocationC();
+    res.status(200).json(getAllLocation);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 
 module.exports = {
   getAllSpecieH,

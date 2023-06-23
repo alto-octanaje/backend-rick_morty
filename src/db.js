@@ -1,6 +1,8 @@
 const { Sequelize } = require("sequelize");
 const UserModel = require("./Models/user");
 const PostUser = require("./Models/postUser");
+const originModel = require("./Models/select/originSelect")
+const speciesModel =require("./Models/select/speciesSelect")
 
 require("dotenv").config();
 
@@ -12,11 +14,16 @@ const sequelize = new Sequelize(
 ); 
 UserModel(sequelize);
 PostUser(sequelize);
+originModel(sequelize);
+speciesModel(sequelize)
 
-const { user, postUser } = sequelize.models;
-// console.log(sequelize.models);
+
+const { user, postUser,species } = sequelize.models;
+console.log(sequelize.models);
 
 user.hasMany(postUser );//1-N
 postUser.belongsTo(user); //N-1
+species.hasMany(postUser)
+
 
 module.exports = { sequelize , ...sequelize.models };
