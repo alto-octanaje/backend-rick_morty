@@ -11,10 +11,10 @@ const getAllSelect = async()=>{
             }  
             species.findOrCreate({where: s });
         })
-        console.log(findSpecies);
+    
         return console.log("no tiene elemento ");
     }
-    else  console.log(allSpecies.dataValues); console.log("tiene elementos ");
+    else console.log("tiene elementos ");
 
 }
 

@@ -1,5 +1,5 @@
 const { default: axios } = require("axios");
-const speciesArray = (array) =>
+const arraySpecies = (array) =>
   array.map((e) => ({
     species: e.species,
   }));
@@ -20,6 +20,10 @@ const arrayLocation = (array) =>
   array.map((e) => ({
     location: e.location.name,
   }));
+const arrayType = (array) =>
+array.map((e) => ({
+  gender: e.type,
+}));
 
 const getAllSpeciesC = async () => {
   let nextUrl = "https://rickandmortyapi.com/api/character/";
@@ -49,7 +53,7 @@ const getAllGenderC = async () => {
   return uniqueGender;
 };
 
-// const getAllGenderC = async () => {
+
 //   const findGenderApi = (
 //     await axios.get("https://rickandmortyapi.com/api/character/")
 //   ).data.results;
@@ -72,7 +76,7 @@ const getAllStatusC = async () => {
   const uniqueStatus = [...new Set(getAllStatusApi.map((e) => e.status))];
   return uniqueStatus;
 };
-// const getAllStatusC = async () => {
+
 //   const findStatusApi = (
 //     await axios.get("https://rickandmortyapi.com/api/character/")
 //   ).data.results;
@@ -96,7 +100,7 @@ const getAllOriginC = async () => {
   return uniqueOrigin;
 };
 
-// const getAllOriginC = async () => {
+
 //   const findOriginApi = (
 //     await axios.get("https://rickandmortyapi.com/api/character/")
 //   ).data.results;
@@ -119,16 +123,19 @@ const getAllLocationC = async () => {
   const uniqueLocation = [...new Set(getAllLocationApi.map((e) => e.location))];
   return uniqueLocation;
 };
+const getAllTypeC = async () => {
+  let nextUrl = "https://rickandmortyapi.com/api/character/";
+  const getAllTypeApi = [];
+  while (nextUrl) {
+    const findTypeApi = (await axios.get(nextUrl)).data;
+    const allType = arrayType(findTypeApi.results);
+    getAllTypeApi.push(...allType);
+    nextUrl = findTypeApi.info.next;
+  }
 
-//const getAllLocationC = async () => {
-//   const findLocationApi = (
-//     await axios.get("https://rickandmortyapi.com/api/character/")
-//   ).data.results;
-//   const allLocation = arrayLocation(findLocationApi);
-//   const uniqueLocation = [...new Set(allLocation.map((e) => e.location))];
-
-//   return uniqueLocation;
-//};
+  const uniqueType = [...new Set(getAllTypeApi.map((e) => e.type))];
+  return uniqueType;
+};
 
 module.exports = {
   getAllSpeciesC,
@@ -136,4 +143,5 @@ module.exports = {
   getAllStatusC,
   getAllOriginC,
   getAllLocationC,
+  getAllTypeC,
 };

@@ -5,6 +5,7 @@ const {
   getAllStatusH,
   getAllOriginH,
   getAllLocationH,
+  getAllTypeH,
 } = require("../../handler/select/handlerSelect");
 
 const selectRouter = Router();
@@ -14,5 +15,7 @@ selectRouter.get("/gender", getAllGenderH);
 selectRouter.get("/status", getAllStatusH);
 selectRouter.get("/origin", getAllOriginH);
 selectRouter.get("/location", getAllLocationH);
+selectRouter.get("/type", getAllTypeH);
+
 
 module.exports = selectRouter;

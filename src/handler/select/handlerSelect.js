@@ -4,6 +4,7 @@ const {
   getAllStatusC,
   getAllOriginC,
   getAllLocationC,
+  getAllTypeC
 } = require("../../Controllers/Select/SelectController");
 
 const getAllSpecieH = async (req, res) => {
@@ -49,6 +50,14 @@ const getAllLocationH = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+const getAllTypeH = async (req, res) => {
+  try {
+    const getAllType = await getAllTypeC();
+    res.status(200).json(getAllType);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 
 module.exports = {
   getAllSpecieH,
@@ -56,4 +65,5 @@ module.exports = {
   getAllStatusH,
   getAllOriginH,
   getAllLocationH,
+  getAllTypeH,
 };

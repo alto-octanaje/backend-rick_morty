@@ -5,7 +5,7 @@ const PORT= process.env.PORT || 3001
 
 app.listen(PORT,async()=>{
     await getAllSelect()
-    sequelize.sync({alter:true})
+    sequelize.sync({force:true})
     console.log("listening in 3001");
 })
-// alter force
+// alter force  
