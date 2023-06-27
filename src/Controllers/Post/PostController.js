@@ -1,5 +1,5 @@
 const { default: axios } = require("axios");
-const { postUser } = require("../../db");
+const { postUser,status } = require("../../db");
  
 const cleanArray = (array) =>
   array.map((e) => ({
@@ -28,25 +28,25 @@ const cleanArray = (array) =>
 
 const createPostC = async (
   name,
-  status,
-  species,
-  type,
-  gender,
   image,
-  location,
-  origin,
+  statusId,
+  speciesId,
+  typeId,
+  genderId,
+  locationId,
+  originId,
   userId
 ) => {
   const newPost = await postUser.create({
     name,
-    status,
-    species,
-    type,
-    gender,
-    image,
-    location,
-    origin,
+    image
   });
+  await newPost.setStatus(statusId);
+  await newPost.setSpecies(speciesId);
+  await newPost.setType(typeId);
+  await newPost.setGender(genderId);
+  await newPost.setlocation(locationId);
+  await newPost.setOrigin(originId);
   await newPost.setUser(userId);
   return newPost;
 }; 

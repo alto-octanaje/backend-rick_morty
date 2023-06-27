@@ -79,6 +79,7 @@ const getAllTypeC = async () => {
   else return "alert Empty database..";
 };
 
+
 module.exports = {
   getAllSpeciesC,
   getAllGenderC,
@@ -87,4 +88,5 @@ module.exports = {
   getAllLocationC,
   getAllTypeC,
   getAllSelectFull,
+
 };

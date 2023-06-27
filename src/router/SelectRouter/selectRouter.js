@@ -20,4 +20,6 @@ selectRouter.get("/location", getAllLocationH);
 selectRouter.get("/type", getAllTypeH);
 
 
+
+
 module.exports = selectRouter;

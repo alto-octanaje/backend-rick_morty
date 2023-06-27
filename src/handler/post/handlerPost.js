@@ -10,24 +10,24 @@ const createPostH = async (req, res) => {
   try {
     const {
       name,
-      status,
-      species,
-      type,
-      gender,
       image,
-      location,
-      origin,
-      userId,
+      statusId,
+      speciesId,
+      typeId,
+      genderId,
+      locationId,
+      originId,
+      userId
     } = req.body;
     const newPost = await createPostC(
       name,
-      status,
-      species,
-      type,
-      gender,
       image,
-      location,
-      origin,
+      statusId,
+      speciesId,
+      typeId,
+      genderId,
+      locationId,
+      originId,
       userId
     );
     res.status(201).json(newPost);

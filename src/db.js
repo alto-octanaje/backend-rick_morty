@@ -36,11 +36,18 @@ const { user, postUser,species,gender,location,origin,status,type } = sequelize.
 user.hasMany(postUser );//1-N
 postUser.belongsTo(user); //N-1
 gender.hasMany(postUser);
+postUser.belongsTo(gender); //N-1
 location.hasMany(postUser);
-origin.hasMany(postUser);
+postUser.belongsTo(location); //N-1
+origin.hasMany(postUser);//1-N
+postUser.belongsTo(origin); //N-1
 species.hasMany(postUser);
+postUser.belongsTo(species); //N-1
 status.hasMany(postUser);
+postUser.belongsTo(status); //N-1
 type.hasMany(postUser);
+postUser.belongsTo(type); //N-1
+
 
 
 

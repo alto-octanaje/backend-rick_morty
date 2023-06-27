@@ -5,7 +5,7 @@ const {
   getAllOriginC,
   getAllLocationC,
   getAllTypeC,
-  getAllSelectFull
+  getAllSelectFull,
 } = require("../../Controllers/Select/SelectController");
 
 const getAllFullH = async (req, res) => {
@@ -70,6 +70,7 @@ const getAllTypeH = async (req, res) => {
   }
 };
 
+
 module.exports = {
   getAllSpecieH,
   getAllGenderH,
@@ -78,4 +79,5 @@ module.exports = {
   getAllLocationH,
   getAllTypeH,
   getAllFullH,
+
 };
