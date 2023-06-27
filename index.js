@@ -4,8 +4,8 @@ const {getAllSelect}=require("./src/utils/getAllSelect")
 const PORT= process.env.PORT || 3001 
 
 app.listen(PORT,async()=>{
-    // await getAllSelect()
-    sequelize.sync({alter:true})
+    await getAllSelect()
+    sequelize.sync({alter :true})
     console.log("listening in 3001");
 })   
 // alter force  

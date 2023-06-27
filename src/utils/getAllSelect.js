@@ -11,48 +11,38 @@ const getAllSelect = async () => {
     const allType = await type.findAll();
 
     if (
-      !allSpecies.length ||
-      !allGender.length ||
-      !allLocation.length ||
-      !allOrigin.length ||
-      !allStatus.length ||
+      !allSpecies.length &&
+      !allGender.length &&
+      !allLocation.length &&
+      !allOrigin.length &&
+      !allStatus.length &&
       !allType.length
-    ) { 
-      // const findSpecies = (
-      //   await axios.get("http://localhost:3001/select/species")).data;
-      // findSpecies.map((e) => {
-      //   species.findOrCreate({ where: { name: e, }, });
-      // });
-      // const findGender = (
-      //   await axios.get("http://localhost:3001/select/gender")).data;
-      // findGender.map((e) => {
-      //   gender.findOrCreate({ where: { name: e, }, });
-      // });
-      const findOrigin = (
-        await axios.get("http://localhost:3001/select/origin")).data;
-      findOrigin.map((e) => {
-        origin.findOrCreate({ where: { name: e, }, });
-      });
-      const findLocation = (
-        await axios.get("http://localhost:3001/select/location")).data;
-      findLocation.map((e) => {
-        location.findOrCreate({ where: { name: e, }, });
-      });
-      
-      const findStatus = (
-        await axios.get("http://localhost:3001/select/status")).data;
-      findStatus.map((e) => {
-        status.findOrCreate({ where: { name: e, }, });
-      });
-      const findType = (
-        await axios.get("http://localhost:3001/select/type")).data;
-      findType.map((e) => {
-        type.findOrCreate({ where: { name: e, }, });
-      });
+    ) {
+      const allSelectFull = (await axios.get("http://localhost:3001/select/"))
+        .data;
 
-
+      allSelectFull.allSpecies.map((e) => {
+        species.findOrCreate({ where: { name: e } });
+      });
+      allSelectFull.allGender.map((e) => {
+        gender.findOrCreate({ where: { name: e } });
+      });
+      allSelectFull.allLocation.map((e) => {
+        location.findOrCreate({ where: { name: e } });
+      });
+      allSelectFull.allOrigin.map((e) => {
+        origin.findOrCreate({ where: { name: e } });
+      });
+      allSelectFull.allStatus.map((e) => {
+        status.findOrCreate({ where: { name: e } });
+      });
+      allSelectFull.allType.map((e) => {
+        type.findOrCreate({ where: { name: e } });
+      });
       return console.log("all Select ");
-    } else console.log("tiene elementos ");
+    } 
+    else  console.log("full Data ");
+    
   } catch (error) {
     console.log(error);
   }

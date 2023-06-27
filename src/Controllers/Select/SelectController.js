@@ -1,4 +1,5 @@
 const { default: axios } = require("axios");
+const { species, gender, location, origin, status, type } = require("../../db");
 
 const arrayFull = (array) =>
   array.map((e) => ({
@@ -9,7 +10,6 @@ const arrayFull = (array) =>
     location: e.location.name,
     type: e.type,
   }));
-
 
 const getAllSelectFull = async () => {
   let nextUrl = "https://rickandmortyapi.com/api/character/";
@@ -28,50 +28,55 @@ const getAllSelectFull = async () => {
   const getAllLocationApi = [...new Set(getAllSFull.map((e) => e.location))];
   const getAllTypeApi = [...new Set(getAllSFull.map((e) => e.type))];
   const allFullData = {
-    allSpecies: [...getAllSpeciesApi] ,
-     allGender: [...getAllGenderApi] ,
-     allStatus: [...getAllStatusApi] ,
-     allOrigin: [...getAllOriginApi] ,
-     allLocation: [...getAllLocationApi] ,
-     allType: [...getAllTypeApi] ,
-  }
-  console.log(allFullData);
+    allSpecies: [...getAllSpeciesApi],
+    allGender: [...getAllGenderApi],
+    allStatus: [...getAllStatusApi],
+    allOrigin: [...getAllOriginApi],
+    allLocation: [...getAllLocationApi],
+    allType: [...getAllTypeApi],
+  };
   return allFullData;
 };
 
 const getAllSpeciesC = async () => {
-  const { allSpecies } =await getAllSelectFull()
-  console.log(allSpecies);
-  return allSpecies;
+  const seeSpecies = await species.findAll();
+
+  if (seeSpecies.length) return seeSpecies;
+  else return "alert Empty database..";
 };
 
 const getAllGenderC = async () => {
-  const { allGender } =await getAllSelectFull()
-  console.log(allGender);
-  return allGender;
+  const seeGender = await gender.findAll();
+
+  if (seeGender.length) return seeGender;
+  else return "alert Empty database..";
 };
 
 const getAllStatusC = async () => {
-  const { allStatus} =await getAllSelectFull()
-  console.log(allStatus);
-  return allStatus;
+  const seeStatus = await status.findAll();
+
+  if (seeStatus.length) return seeStatus;
+  else return "alert Empty database..";
 };
 
 const getAllOriginC = async () => {
-  const { allOrigin} =await getAllSelectFull()
-  console.log(allOrigin);
-  return allOrigin;
+  const seeOrigin = await origin.findAll();
+
+  if (seeOrigin.length) return seeOrigin;
+  else return "alert Empty database..";
 };
 
 const getAllLocationC = async () => {
-  const { allLocation} =await getAllSelectFull()
-  console.log(allLocation);
-  return allLocation;
+  const seeLocation = await location.findAll();
+
+  if (seeLocation.length) return seeLocation;
+  else return "alert Empty database..";
 };
 const getAllTypeC = async () => {
-  const { allType} =await getAllSelectFull()
-  console.log(allType);
-  return allType;
+  const seeType = await type.findAll();
+
+  if (seeType.length) return seeType;
+  else return "alert Empty database..";
 };
 
 module.exports = {
