@@ -4,8 +4,19 @@ const {
   getAllStatusC,
   getAllOriginC,
   getAllLocationC,
-  getAllTypeC
+  getAllTypeC,
+  getAllSelectFull
 } = require("../../Controllers/Select/SelectController");
+
+const getAllFullH = async (req, res) => {
+  try {
+    const getAllSpecie = await getAllSelectFull();
+
+    res.status(200).json(getAllSpecie);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 
 const getAllSpecieH = async (req, res) => {
   try {
@@ -66,4 +77,5 @@ module.exports = {
   getAllOriginH,
   getAllLocationH,
   getAllTypeH,
+  getAllFullH,
 };

@@ -6,10 +6,12 @@ const {
   getAllOriginH,
   getAllLocationH,
   getAllTypeH,
+  getAllFullH,
 } = require("../../handler/select/handlerSelect");
 
 const selectRouter = Router();
 
+selectRouter.get("/", getAllFullH);
 selectRouter.get("/species", getAllSpecieH);
 selectRouter.get("/gender", getAllGenderH);
 selectRouter.get("/status", getAllStatusH);

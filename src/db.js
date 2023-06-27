@@ -31,7 +31,7 @@ typeModel(sequelize);
 
 
 const { user, postUser,species,gender,location,origin,status,type } = sequelize.models;
-console.log(sequelize.models);
+// console.log(sequelize.models);
 
 user.hasMany(postUser );//1-N
 postUser.belongsTo(user); //N-1
