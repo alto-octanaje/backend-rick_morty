@@ -1,13 +1,13 @@
 const              createChatacterV=(req,res,next)=>{
-    const {name,statusId,species,type,gender,image,location,origin,userId}= req.body;
+    const {name,image,statusId,speciesId,typeId,genderId,locationId,originId,userId}= req.body;
     if(!name) return res.status(400).json({error:"Missing Name" })
     if(!statusId) return res.status(400).json({error:"Missing status" })
-    // if(!species) return res.status(400).json({error:"Missing species" })
-    // if(!type) return res.status(400).json({error:"Missing type" })
-    // if(!gender) return res.status(400).json({error:"Missing gender" })
+    if(!speciesId) return res.status(400).json({error:"Missing species" })
+    if(!typeId) return res.status(400).json({error:"Missing type" })
+    if(!genderId) return res.status(400).json({error:"Missing gender" })
     if(!image) return res.status(400).json({error:"Missing image" })
-    // if(!location) return res.status(400).json({error:"Missing location" })
-    // if(!origin) return res.status(400).json({error:"Missing origin" })
+    if(!locationId) return res.status(400).json({error:"Missing location" })
+    if(!originId) return res.status(400).json({error:"Missing origin" })
     if(!userId) return res.status(400).json({error:"Missing userId" })
 
 

@@ -45,7 +45,7 @@ const createPostC = async (
   await newPost.setSpecies(speciesId);
   await newPost.setType(typeId);
   await newPost.setGender(genderId);
-  await newPost.setlocation(locationId);
+  await newPost.setLocation(locationId);
   await newPost.setOrigin(originId);
   await newPost.setUser(userId);
   return newPost;
