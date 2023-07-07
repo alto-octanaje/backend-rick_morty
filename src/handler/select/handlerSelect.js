@@ -6,6 +6,7 @@ const {
   getAllLocationC,
   getAllTypeC,
   getAllSelectFull,
+  getSpeciesIDC,
 } = require("../../Controllers/Select/SelectController");
 
 const getAllFullH = async (req, res) => {
@@ -18,15 +19,25 @@ const getAllFullH = async (req, res) => {
   }
 };
 
+
 const getAllSpecieH = async (req, res) => {
   try {
     const getAllSpecie = await getAllSpeciesC();
-
     res.status(200).json(getAllSpecie);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
+const getSpeciesIDH=async(req,res)=>{
+  try {
+    const {id}= req.params;
+    const findSpecies=await getSpeciesIDC(id)
+    res.status(400).json(findSpecies)
+  } catch (error) {
+    res.status(200).json({error:error.message})
+  }
+
+}
 const getAllGenderH = async (req, res) => {
   try {
     const getAllGender = await getAllGenderC();
@@ -79,5 +90,8 @@ module.exports = {
   getAllLocationH,
   getAllTypeH,
   getAllFullH,
+
+  getSpeciesIDH,
+
 
 };

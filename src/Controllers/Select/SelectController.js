@@ -40,10 +40,13 @@ const getAllSelectFull = async () => {
 
 const getAllSpeciesC = async () => {
   const seeSpecies = await species.findAll();
-
   if (seeSpecies.length) return seeSpecies;
   else return "alert Empty database..";
 };
+const getSpeciesIDC= async (id)=>{
+    const findID= await species.findByPk(id)
+    return findID;
+}
 
 const getAllGenderC = async () => {
   const seeGender = await gender.findAll();
@@ -88,5 +91,6 @@ module.exports = {
   getAllLocationC,
   getAllTypeC,
   getAllSelectFull,
-
+  getSpeciesIDC,
+  
 };

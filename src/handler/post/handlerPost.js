@@ -45,7 +45,6 @@ const getAllPostH = async (req, res) => {
 };
 const getPostIDH = async (req, res) => {
   try {
-
     const { id } = req.params;
     const source = isNaN(id) ? "BB" : "api";
     const findID = await idPostC(id, source);
